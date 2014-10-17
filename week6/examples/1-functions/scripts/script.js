@@ -17,6 +17,7 @@ function calculating() {
     console.log(number1, " * ", number2, " = ", number1 * number2);
 }
 
+var currentAction = "calculating";
 if (currentAction == "calculating") {
     calculating(); // Execute the function
 }
