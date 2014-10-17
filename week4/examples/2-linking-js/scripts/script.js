@@ -1,0 +1,1 @@
+console.log("Test"); // Should be visible in console if html file is opened.
