@@ -50,27 +50,31 @@ input, select {
 }
 
 input[type=submit] {
-    background-color: red;
+    background-color: #ff3600;
     color: white;
-    border: 3px solid darkred;
+    border: 3px solid #af2500;
 }
 
 ::-webkit-input-placeholder {
-    color: red;
+    color: #ff3600;
+}
+
+.player1, .player2 {
+    font-size: 24px;
 }
 
 .player1 {
-    background-color: #05a6ff;
+    background-color: #6fbdff;
     transform: rotateZ(2deg);
 }
 
 .player2 {
-    background-color: yellow;
+    background-color: #fffc00;
     transform: rotateZ(-1deg);
 }
 
 .difficulty {
-    background-color: aqua;
+    background-color: #00fffc;
     transform: rotateZ(1deg);
 }
 
