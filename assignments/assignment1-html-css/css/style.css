@@ -125,6 +125,28 @@ label {
     color: white;
 }
 
+@media(max-width: 900px) {
+    .intro {
+        width: 50%;
+        float: left;
+    }
+
+    aside form {
+        width: 50%;
+        float: left;
+    }
+
+    aside {
+        float: none;
+        width: 100%;
+    }
+
+    .playfield {
+        width: 100%;
+    }
+
+}
+
 /* Clearfix 'hack' : http://nicolasgallagher.com/micro-clearfix-hack */
 .cf:before,
 .cf:after {
