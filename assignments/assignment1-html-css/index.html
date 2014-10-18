@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Beoordeelopdracht 1</title>
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah|Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div class="container cf">
+    <aside>
+        <header>
+            <h1>Memory.</h1>
+
+            <p class="subtitle">So you know</p>
+        </header>
+
+        <p>
+            Train je hersenen en speel mee met dit leuke spel!
+        </p>
+
+        <form action="#">
+            <fieldset>
+                <legend>Spelgegevens</legend>
+                <input type="text" placeholder="Speler 1" class="player1"/>
+                <input type="text" placeholder="Speler 2" class="player2"/>
+                <label for="difficulty">Moeilijkheidsgraad</label>
+                <select name="difficulty" id="difficulty" class="difficulty">
+                    <option value="" selected>moeilijkheidsgraad</option>
+                    <option value="makkelijk">Makkelijk</option>
+                    <option value="normaal">Normaal</option>
+                    <option value="moeilijk">Moeilijk</option>
+                </select>
+                <input type="submit" value="play!"/>
+            </fieldset>
+        </form>
+    </aside>
+
+    <section class="playfield cf">
+        <div class="card bat">
+            <span class="player-indicator">1</span>
+        </div>
+        <div class="card closed"></div>
+        <div class="card bug">
+            <span class="player-indicator">1</span>
+        </div>
+        <div class="card dog">
+            <span class="player-indicator">2</span>
+        </div>
+        <div class="card bat">
+            <span class="player-indicator">1</span>
+        </div>
+        <div class="card closed"></div>
+        <div class="card dog">
+            <span class="player-indicator">2</span>
+        </div>
+        <div class="card frog">
+            <span class="player-indicator">2</span>
+        </div>
+        <div class="card closed"></div>
+        <div class="card bug">
+            <span class="player-indicator">1</span>
+        </div>
+        <div class="card frog">
+            <span class="player-indicator">2</span>
+        </div>
+        <div class="card closed"></div>
+    </section>
+
+</div>
+</body>
+</html>
