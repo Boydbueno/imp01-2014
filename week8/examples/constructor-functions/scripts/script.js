@@ -10,3 +10,5 @@ var fido = new Dog("Fido", 40);
 
 console.log(fido.name);
 fido.bark();
+
+// github.com/boydbueno/imp01-2014
