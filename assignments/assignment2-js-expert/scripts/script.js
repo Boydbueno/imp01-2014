@@ -29,7 +29,7 @@ function startGame(e) {
     }
 
     var cards = getRandomCards(count);
-    //cards = shuffle(cards);
+    cards = shuffle(cards);
 
     addCardsToDom(cards);
 
@@ -159,4 +159,30 @@ function isCardCorrect(card) {
  */
 function isCardOpen(card) {
     return !card.classList.contains("closed");
+}
+
+/**
+ * Fisher-Yates shuffle
+ * http://bost.ocks.org/mike/shuffle/
+ * @param array
+ * @returns {Array}
+ */
+function shuffle(array) {
+    var copy = [], n = array.length, i;
+
+    // While there remain elements to shuffle…
+    while (n) {
+
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * array.length);
+
+        // If not already shuffled, move it to the new array.
+        if (i in array) {
+            copy.push(array[i]);
+            delete array[i];
+            n--;
+        }
+    }
+
+    return copy;
 }
