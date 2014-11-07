@@ -168,3 +168,7 @@ label {
 .cf:after {
     clear: both;
 }
+
+.hidden {
+    display: none;
+}
