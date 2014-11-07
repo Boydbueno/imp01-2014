@@ -1,4 +1,5 @@
 var gameSettings = document.getElementById("js-game-settings");
+var availableCards = ["bat", "bug", "cat", "dog", "fly", "frog", "monkey", "mouse", "spider"];
 
 var hasGameStarted = false;
 var firstCardOpened = null;
@@ -20,16 +21,43 @@ function startGame(e) {
     // If no difficulty has been selected, don't do anything
     if (difficulty == "") return;
 
-    var cards = [];
+    var count;
     if (difficulty == "makkelijk") {
-        cards = ["bat", "bug", "bat", "dog", "cat", "cat", "dog", "bug"];
+        count = 8;
     } else {
-        cards = ["bat", "bug", "frog", "bat", "dog", "cat", "fly", "cat", "dog", "bug", "fly", "frog"];
+        count = 12;
     }
+
+    var cards = getRandomCards(count);
+    //cards = shuffle(cards);
 
     addCardsToDom(cards);
 
     hasGameStarted = true;
+}
+
+/**
+ * Gets given amount of random card pairs from the available cards array.
+ * @param {number} count
+ * @returns {Array}
+ */
+function getRandomCards(count) {
+    // Get a copy of the available cards
+    var allCards = availableCards.slice(0);
+    var differentCards = count / 2;
+    var cards = [];
+    var randomIndex;
+    var randomCard;
+
+    while (differentCards--) {
+        randomIndex = Math.floor(Math.random() * allCards.length);
+        // Remove a card from the allCards array by it's index
+        randomCard = allCards.splice(randomIndex, 1);
+        // Add the random card twice to get a pair
+        cards.push( randomCard, randomCard );
+    }
+
+    return cards;
 }
 
 /**
