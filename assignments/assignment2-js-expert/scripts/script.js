@@ -1,4 +1,5 @@
 var gameSettings = document.getElementById("js-game-settings");
+var scoreBoard = document.getElementById("scoreboard");
 var availableCards = ["bat", "bug", "cat", "dog", "fly", "frog", "monkey", "mouse", "spider"];
 
 var hasGameStarted = false;
@@ -34,6 +35,8 @@ function startGame(e) {
     cards = shuffle(cards);
 
     addCardsToDom(cards);
+
+    showScoreboard();
 
     hasGameStarted = true;
 }
@@ -72,6 +75,11 @@ function addCardsToDom(cards) {
         var cardElement = createCard(cards[cardCount]);
         document.getElementById("js-playfield").appendChild(cardElement);
     }
+}
+
+function showScoreboard() {
+    scoreBoard.classList.remove("hidden");
+    gameSettings.classList.add("hidden");
 }
 
 /**
