@@ -17,9 +17,11 @@ function startGame(e) {
     if (hasGameStarted) return;
 
     var difficulty = document.getElementById("js-difficulty").value;
+    var player1 = document.getElementById("player1").value;
+    var player2 = document.getElementById("player2").value;
 
-    // If no difficulty has been selected, don't do anything
-    if (difficulty == "") return;
+    // If no difficulty has been selected, or no players have been entered, don't do anything
+    if (difficulty == "" || player1 == "" || player2 == "") return;
 
     var count;
     if (difficulty == "makkelijk") {
