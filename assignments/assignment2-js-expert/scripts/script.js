@@ -1,17 +1,17 @@
-var gameSettings = document.getElementById("js-game-settings");
-var scoreBoard = document.getElementById("scoreboard");
-var player1Name = document.getElementById("player1-name");
-var player2Name = document.getElementById("player2-name");
+var gameSettingsEl = document.getElementById("js-game-settings");
+var scoreBoardEl = document.getElementById("scoreboard");
+var player1El = document.getElementById("player1-name");
+var player2El = document.getElementById("player2-name");
 var availableCards = ["bat", "bug", "cat", "dog", "fly", "frog", "monkey", "mouse", "spider"];
 
 var hasGameStarted = false;
 var firstCardOpened = null;
 
-var player1;
-var player2;
+var player1Name;
+var player2Name;
 var currentPlayer = 1;
 
-gameSettings.addEventListener("submit", startGame);
+gameSettingsEl.addEventListener("submit", startGame);
 
 /**
  * Start the game
@@ -24,11 +24,11 @@ function startGame(e) {
     if (hasGameStarted) return;
 
     var difficulty = document.getElementById("js-difficulty").value;
-    player1 = document.getElementById("player1").value;
-    player2 = document.getElementById("player2").value;
+    player1Name = document.getElementById("player1").value;
+    player2Name = document.getElementById("player2").value;
 
     // If no difficulty has been selected, or no players have been entered, don't do anything
-    if (difficulty == "" || player1 == "" || player2 == "") return;
+    if (difficulty == "" || player1Name == "" || player2Name == "") return;
 
     var count;
     if (difficulty == "makkelijk") {
@@ -78,17 +78,17 @@ function getRandomCards(count) {
 function addCardsToDom(cards) {
     var cardCount = cards.length;
     while (cardCount--) {
-        var cardElement = createCard(cards[cardCount], currentPlayer);
+        var cardElement = createCard(cards[cardCount]);
         document.getElementById("js-playfield").appendChild(cardElement);
     }
 }
 
 function showScoreboard() {
-    scoreBoard.classList.remove("hidden");
+    scoreBoardEl.classList.remove("hidden");
 
-    player1Name.innerHTML = player1;
-    player2Name.innerHTML = player2;
-    gameSettings.classList.add("hidden");
+    player1El.innerHTML = player1Name;
+    player2El.innerHTML = player2Name;
+    gameSettingsEl.classList.add("hidden");
 }
 
 /**
@@ -127,7 +127,7 @@ function clickCardHandler(e) {
         // Remember the cards to close, because firstCardOpened will be changed before code in setTimeout will trigger
         var cardsToClose = [card, firstCardOpened];
         if (isCardCorrect(card)) {
-            // Correct cards, we keep them open, so we do nothing special
+            increaseScoreOfCurrentPlayer();
         } else {
             setTimeout(function() {
                 closeCards(cardsToClose);
@@ -156,6 +156,15 @@ function nextPlayer() {
     } else {
         currentPlayer++;
     }
+}
+
+/**
+ * Increase the score of the current player
+ */
+function increaseScoreOfCurrentPlayer() {
+    var playerScoreEl = document.getElementById("player" + currentPlayer + "-score");
+    var currentScore = playerScoreEl.innerHTML;
+    playerScoreEl.innerHTML = parseInt(currentScore) + 1;
 }
 
 /**
