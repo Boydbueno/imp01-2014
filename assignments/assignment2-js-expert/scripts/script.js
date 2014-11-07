@@ -133,7 +133,7 @@ function clickCardHandler(e) {
                 closeCards(cardsToClose);
             }, 1000);
         }
-
+        
         firstCardOpened = null;
     } else {
         firstCardOpened = card;
@@ -145,6 +145,7 @@ function clickCardHandler(e) {
  * @param {HTMLElement|EventTarget} card
  */
 function openCard(card) {
+    card.children[0].innerHTML = currentPlayer.toString();
     card.classList.remove("closed");
 }
 
