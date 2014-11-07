@@ -9,6 +9,7 @@ var firstCardOpened = null;
 
 var player1;
 var player2;
+var currentPlayer = 1;
 
 gameSettings.addEventListener("submit", startGame);
 
@@ -77,7 +78,7 @@ function getRandomCards(count) {
 function addCardsToDom(cards) {
     var cardCount = cards.length;
     while (cardCount--) {
-        var cardElement = createCard(cards[cardCount]);
+        var cardElement = createCard(cards[cardCount], currentPlayer);
         document.getElementById("js-playfield").appendChild(cardElement);
     }
 }
@@ -103,6 +104,10 @@ function createCard(cardPicture) {
     card.className = "card closed " + cardPicture;
     card.addEventListener("click", clickCardHandler);
 
+    var playerIndicator = document.createElement("span");
+    playerIndicator.className = "player-indicator";
+
+    card.appendChild(playerIndicator);
     wrapper.appendChild(card);
 
     return wrapper;

@@ -136,6 +136,10 @@ label {
     color: white;
 }
 
+.closed .player-indicator {
+    display: none;
+}
+
 @media(max-width: 900px) {
     .intro {
         width: 50%;
@@ -171,4 +175,8 @@ label {
 
 .hidden {
     display: none;
+}
+
+.active {
+    background-color: rgba(0,0,0,0.3);
 }
