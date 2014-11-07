@@ -65,7 +65,7 @@ function getRandomCards(count) {
         // Remove a card from the allCards array by it's index
         randomCard = allCards.splice(randomIndex, 1);
         // Add the random card twice to get a pair
-        cards.push( randomCard, randomCard );
+        cards.push(randomCard, randomCard);
     }
 
     return cards;
@@ -132,8 +132,9 @@ function clickCardHandler(e) {
             setTimeout(function() {
                 closeCards(cardsToClose);
             }, 1000);
+            nextPlayer();
         }
-        
+
         firstCardOpened = null;
     } else {
         firstCardOpened = card;
@@ -147,6 +148,14 @@ function clickCardHandler(e) {
 function openCard(card) {
     card.children[0].innerHTML = currentPlayer.toString();
     card.classList.remove("closed");
+}
+
+function nextPlayer() {
+    if (currentPlayer == 2) {
+        currentPlayer = 1;
+    } else {
+        currentPlayer++;
+    }
 }
 
 /**
