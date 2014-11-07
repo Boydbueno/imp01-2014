@@ -1,9 +1,14 @@
 var gameSettings = document.getElementById("js-game-settings");
 var scoreBoard = document.getElementById("scoreboard");
+var player1Name = document.getElementById("player1-name");
+var player2Name = document.getElementById("player2-name");
 var availableCards = ["bat", "bug", "cat", "dog", "fly", "frog", "monkey", "mouse", "spider"];
 
 var hasGameStarted = false;
 var firstCardOpened = null;
+
+var player1;
+var player2;
 
 gameSettings.addEventListener("submit", startGame);
 
@@ -18,8 +23,8 @@ function startGame(e) {
     if (hasGameStarted) return;
 
     var difficulty = document.getElementById("js-difficulty").value;
-    var player1 = document.getElementById("player1").value;
-    var player2 = document.getElementById("player2").value;
+    player1 = document.getElementById("player1").value;
+    player2 = document.getElementById("player2").value;
 
     // If no difficulty has been selected, or no players have been entered, don't do anything
     if (difficulty == "" || player1 == "" || player2 == "") return;
@@ -79,6 +84,9 @@ function addCardsToDom(cards) {
 
 function showScoreboard() {
     scoreBoard.classList.remove("hidden");
+
+    player1Name.innerHTML = player1;
+    player2Name.innerHTML = player2;
     gameSettings.classList.add("hidden");
 }
 
