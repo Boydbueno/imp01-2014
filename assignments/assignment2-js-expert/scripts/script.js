@@ -83,6 +83,9 @@ function addCardsToDom(cards) {
     }
 }
 
+/**
+ * Change the view in the sidebar to show player scoreboard
+ */
 function showScoreboard() {
     scoreBoardEl.classList.remove("hidden");
 
@@ -150,6 +153,9 @@ function openCard(card) {
     card.classList.remove("closed");
 }
 
+/**
+ * Switch the turn to the next player
+ */
 function nextPlayer() {
     if (currentPlayer == 2) {
         currentPlayer = 1;
