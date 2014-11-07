@@ -1,0 +1,170 @@
+/** Reset some stuff **/
+body, h1, fieldset { margin: 0; }
+fieldset { border: 0; padding: 0; }
+
+body {
+    background-image: url(../images/background.jpg);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+}
+
+h1,
+legend {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+legend {
+    margin-bottom: 10px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 40px 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #01dc15;
+}
+
+aside {
+    box-sizing: border-box;
+    float: left;
+    width: 30%;
+    padding-right: 40px;
+}
+
+.subtitle {
+    font-style: italic;
+    font-size: 18px;
+    margin: 0;
+}
+
+input, select {
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+input[type=submit] {
+    background-color: #ff3600;
+    color: white;
+    border: 3px solid #af2500;
+}
+
+::-webkit-input-placeholder {
+    color: #ff3600;
+}
+
+.player1, .player2 {
+    font-size: 24px;
+}
+
+.player1 {
+    background-color: #6fbdff;
+    transform: rotateZ(2deg);
+}
+
+.player2 {
+    background-color: #fffc00;
+    transform: rotateZ(-1deg);
+}
+
+.difficulty {
+    background-color: #00fffc;
+    transform: rotateZ(1deg);
+}
+
+label {
+    display: none;
+}
+
+.playfield {
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 20px;
+    width: 70%;
+}
+
+.card-wrapper {
+    margin: auto;
+    padding: 5px;
+}
+
+.card {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border: 4px solid white;
+    border-radius: 20px;
+    background-size: cover;
+}
+
+.card.bat { background-image: url(../images/bat.jpg); }
+.card.bug { background-image: url(../images/bug.jpg); }
+.card.cat { background-image: url(../images/cat.jpg); }
+.card.dog { background-image: url(../images/dog.jpg); }
+.card.fly { background-image: url(../images/fly.jpg); }
+.card.frog { background-image: url(../images/frog.jpg); }
+.card.monkey { background-image: url(../images/monkey.jpg); }
+.card.mouse { background-image: url(../images/mouse.jpg); }
+.card.spider { background-image: url(../images/spider.jpg); }
+.card.closed { background-image: url(../images/memory-bg.jpg); }
+
+.player-indicator {
+    display: inline-block;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: red;
+    font-size: 14px;
+    color: white;
+}
+
+@media(max-width: 900px) {
+    .intro {
+        width: 50%;
+        float: left;
+    }
+
+    aside form {
+        width: 50%;
+        float: left;
+    }
+
+    aside {
+        float: none;
+        width: 100%;
+    }
+
+    .playfield {
+        width: 100%;
+    }
+
+}
+
+/* Clearfix 'hack' : http://nicolasgallagher.com/micro-clearfix-hack */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
